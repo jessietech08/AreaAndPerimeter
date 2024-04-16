@@ -1,3 +1,24 @@
 h1{
+    font-size: 55px;
+    color: rgb(2, 2, 204);
     text-align: center;
+}
+main{
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+}
+label{
+    font-size: 25px;
+    color: rgb(0, 153, 0);
+    width: 11em;
+}
+input{
+    margin-bottom: 30px;
+    text-align: center;
+    width: 50px;
+}
+button{
+    font-size: 15px;
+    margin: 10px;
 }
