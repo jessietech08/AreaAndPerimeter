@@ -11,15 +11,22 @@ function processClick() {
     let lengthValue = parseInt(rectangleLength);
     let width = parseInt(rectangleWidth);
     let area = calculateArea(lengthValue, width);
-    displayResults(area);
+    let perimeter = calculatePerimeter(lengthValue, width);
+    displayResults(area, perimeter);
 }
-function displayResults(area) {
+function displayResults(area, perimeter) {
     let areaTextBox = document.getElementById("area");
     areaTextBox.value = area.toString();
+    let perimeterTextBox = document.getElementById("perimeter");
+    perimeterTextBox.value = perimeter.toString();
 }
 function calculateArea(l, w) {
     let area = l * w;
     return area;
+}
+function calculatePerimeter(l, w) {
+    let perimeter = (l + w) * 2;
+    return perimeter;
 }
 function clearEntries() {
     let textBoxes = document.querySelectorAll("input");

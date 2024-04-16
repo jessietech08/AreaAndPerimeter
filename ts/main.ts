@@ -24,16 +24,20 @@ function processClick():void{
 
     let area:number = calculateArea(lengthValue, width);
 
-    displayResults(area); // displays results
+    let perimeter:number = calculatePerimeter(lengthValue, width);
+
+    displayResults(area, perimeter); // displays results
 }
 /**
  * this function displays the users area
  * @param area is shown in the area text box
  */
 
-function displayResults(area:number) {
+function displayResults(area:number, perimeter:number) {
     let areaTextBox:HTMLInputElement = document.getElementById("area") as HTMLInputElement;
     areaTextBox.value = area.toString();
+    let perimeterTextBox:HTMLInputElement = document.getElementById("perimeter") as HTMLInputElement;
+    perimeterTextBox.value = perimeter.toString();
 }
 
 
@@ -45,8 +49,20 @@ function displayResults(area:number) {
  * @returns the area as a number
  */
 function calculateArea(l:number, w:number):number {
-    let area = l * w;
+    let area:number = l * w;
     return area;
+}
+
+/**
+ * this function calculates and returns the perimeter of a 
+ * rectangle, given the length and width
+ * @param l length of the rectangle
+ * @param w width of the rectangle
+ * @returns the perimeter as a number
+ */
+function calculatePerimeter(l:number, w:number):number {
+    let perimeter:number = (l + w) * 2;
+    return perimeter;
 }
 
 /**
