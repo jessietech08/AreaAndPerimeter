@@ -3,6 +3,8 @@
 window.onload = function() {
     let processBtn = document.getElementById("process") as HTMLInputElement;
     processBtn.onclick = processClick;
+    let clearBtn = document.getElementById("clearEntries") as HTMLInputElement;
+    clearBtn.onclick = clearEntries;
 }
 /**
  * Does calculations
@@ -45,5 +47,15 @@ function displayResults(area:number) {
 function calculateArea(l:number, w:number):number {
     let area = l * w;
     return area;
+}
+
+/**
+ * this function clears all users entries
+ */
+function clearEntries():void {
+    let textBoxes:NodeListOf<HTMLInputElement> = document.querySelectorAll("input");
+    for (let input of textBoxes) {
+        input.value = "";
+    }
 }
 

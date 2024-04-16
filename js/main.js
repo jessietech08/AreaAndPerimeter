@@ -1,6 +1,8 @@
 window.onload = function () {
     let processBtn = document.getElementById("process");
     processBtn.onclick = processClick;
+    let clearBtn = document.getElementById("clearEntries");
+    clearBtn.onclick = clearEntries;
 };
 function processClick() {
     let rectangleBox = document.getElementById("length");
@@ -18,4 +20,10 @@ function displayResults(area) {
 function calculateArea(l, w) {
     let area = l * w;
     return area;
+}
+function clearEntries() {
+    let textBoxes = document.querySelectorAll("input");
+    for (let input of textBoxes) {
+        input.value = "";
+    }
 }
