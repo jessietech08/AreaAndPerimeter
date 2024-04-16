@@ -22,9 +22,17 @@ function processClick():void{
 
     let area:number = calculateArea(lengthValue, width);
 
-    alert("your area is " + area);
+    displayResults(area); // displays results
 }
+/**
+ * this function displays the users area
+ * @param area is shown in the area text box
+ */
 
+function displayResults(area:number) {
+    let areaTextBox:HTMLInputElement = document.getElementById("area") as HTMLInputElement;
+    areaTextBox.value = area.toString();
+}
 
 
 /**
@@ -35,6 +43,7 @@ function processClick():void{
  * @returns the area as a number
  */
 function calculateArea(l:number, w:number):number {
-    return l * w;
+    let area = l * w;
+    return area;
 }
 

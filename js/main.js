@@ -9,8 +9,13 @@ function processClick() {
     let lengthValue = parseInt(rectangleLength);
     let width = parseInt(rectangleWidth);
     let area = calculateArea(lengthValue, width);
-    alert("your area is " + area);
+    displayResults(area);
+}
+function displayResults(area) {
+    let areaTextBox = document.getElementById("area");
+    areaTextBox.value = area.toString();
 }
 function calculateArea(l, w) {
-    return l * w;
+    let area = l * w;
+    return area;
 }
