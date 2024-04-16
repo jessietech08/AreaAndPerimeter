@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+     "outDir": "./js",                                   /* Specify an output folder for all emitted files. */
+     "removeComments": true                          /* Disable emitting comments. */
+  }
+}
