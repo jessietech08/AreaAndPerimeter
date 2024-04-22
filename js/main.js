@@ -5,14 +5,31 @@ window.onload = function () {
     clearBtn.onclick = clearEntries;
 };
 function processClick() {
-    let rectangleBox = document.getElementById("length");
-    let rectangleLength = rectangleBox.value;
+    if (isValid()) {
+        let rectangleLength = document.getElementById("length").value;
+        let rectangleWidth = document.getElementById("width").value;
+        let lengthValue = parseInt(rectangleLength);
+        let width = parseInt(rectangleWidth);
+        let area = calculateArea(lengthValue, width);
+        let perimeter = calculatePerimeter(lengthValue, width);
+        displayResults(area, perimeter);
+    }
+    else {
+        alert("Oops! You must enter integers only!");
+    }
+}
+function isValid() {
+    let valid = true;
+    let rectangleLength = document.getElementById("length").value;
     let rectangleWidth = document.getElementById("width").value;
-    let lengthValue = parseInt(rectangleLength);
+    let length = parseInt(rectangleLength);
     let width = parseInt(rectangleWidth);
-    let area = calculateArea(lengthValue, width);
-    let perimeter = calculatePerimeter(lengthValue, width);
-    displayResults(area, perimeter);
+    if (!isNaN(length) && !isNaN(length)) {
+        return valid;
+    }
+    else {
+        return false;
+    }
 }
 function displayResults(area, perimeter) {
     let areaTextBox = document.getElementById("area");

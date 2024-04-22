@@ -10,24 +10,41 @@ window.onload = function() {
  * Does calculations
  */
 function processClick():void{
-    // splitting into two lines to avoid error
-    // let rectangleBox = <HTMLInputElement>document.getElementById("length"); // gets the element by id 
-    let rectangleBox:HTMLInputElement = document.getElementById("length") as HTMLInputElement; // cleaner way than above
-    let rectangleLength:string = rectangleBox.value; // gets the input from that id 
-    // same as rectangleBox but as a one liner
-    let rectangleWidth:string = (document.getElementById("width") as HTMLInputElement).value; 
+    if (isValid()) {
+        let rectangleLength:string = (document.getElementById("length") as HTMLInputElement).value; // gets the input from that id
+        let rectangleWidth:string = (document.getElementById("width") as HTMLInputElement).value; // gets the input from that id
+        // turn user input into numbers
+        let lengthValue:number = parseInt(rectangleLength);
+        let width:number = parseInt(rectangleWidth);
 
+        let area:number = calculateArea(lengthValue, width);
 
-    // turn user input into numbers
-    let lengthValue:number = parseInt(rectangleLength);
+        let perimeter:number = calculatePerimeter(lengthValue, width);
+
+        displayResults(area, perimeter); // displays results
+    }
+    else {
+        alert("Oops! You must enter integers only!");
+    }
+    
+}
+
+function isValid():boolean{
+    let valid:boolean = true;
+    let rectangleLength:string = (document.getElementById("length") as HTMLInputElement).value;
+    let rectangleWidth:string = (document.getElementById("width") as HTMLInputElement).value;
+
+    let length:number = parseInt(rectangleLength);
     let width:number = parseInt(rectangleWidth);
 
-    let area:number = calculateArea(lengthValue, width);
-
-    let perimeter:number = calculatePerimeter(lengthValue, width);
-
-    displayResults(area, perimeter); // displays results
+    if (!isNaN(length) && !isNaN(length)) {
+        return valid;
+    }
+    else {
+        return false;
+    }
 }
+
 /**
  * this function displays the users area
  * @param area is shown in the area text box
